@@ -1,0 +1,7 @@
+server:
+  port: 8084
+  error:
+    include-exception: true
+    include-binding-errors: on_param
+    include-stacktrace: on_param
+    include-message: always
