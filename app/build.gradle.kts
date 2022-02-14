@@ -21,6 +21,7 @@ ext {
 
 allOpen {
 	annotation("javax.persistence.Entity")
+	annotation("javax.persistence.MappedSuperClass")
 }
 
 repositories {
