@@ -11,3 +11,10 @@ clients:
   aviation:
     url: "http://api.aviationstack.com/v1"
     apikey: "978e6ce10f72b50aa9b16bda8794dc9f"
+
+logging:
+  level:
+    com:
+      crowd:
+        it:
+          AppKt: INFO
