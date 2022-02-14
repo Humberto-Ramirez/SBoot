@@ -3,7 +3,7 @@ package com.crowd.it.dtos
 import com.fasterxml.jackson.annotation.JsonAlias
 import com.fasterxml.jackson.annotation.JsonRootName
 
-@JsonRootName("Country")
+@JsonRootName("country")
 data class CountryDto constructor(
 	val id: String,
 	@JsonAlias("country_id")
