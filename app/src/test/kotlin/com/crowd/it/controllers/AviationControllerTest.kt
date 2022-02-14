@@ -1,8 +1,8 @@
 package com.crowd.it.controllers
 
+import com.crowd.it.config.typeRef
 import com.crowd.it.dtos.*
 import com.crowd.it.dtos.response.PaginatedDto
-import com.crowd.it.typeRef
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.slf4j.LoggerFactory
@@ -20,6 +20,7 @@ class AviationControllerTest(@Autowired val restTemplate: TestRestTemplate) {
 	@BeforeEach
 	fun setUp() {
 		log.info("Setup Aviation Controller Test")
+		log.info("All methods throws a INTERNAL_SERVER_ERROR by usage limit reached on Aviation Api")
 	}
 
 	@Test
