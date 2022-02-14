@@ -36,7 +36,7 @@ class RepositoriesTests @Autowired constructor(
 				"MXN",
 				"MX",
 				"52",
-				LocalDateTime.now()
+				"admin"
 			)
 		)
 		countries.add(
@@ -53,7 +53,7 @@ class RepositoriesTests @Autowired constructor(
 				"USD",
 				"US",
 				"1",
-				LocalDateTime.now()
+				"admin"
 			)
 		)
 		val savedCounties = countryRepository.saveAll(countries)
@@ -75,7 +75,7 @@ class RepositoriesTests @Autowired constructor(
 			"AED",
 			"AE",
 			"971",
-			LocalDateTime.now()
+			"admin"
 		)
 		entityManager.persist(country)
 		entityManager.flush()
@@ -85,8 +85,24 @@ class RepositoriesTests @Autowired constructor(
 
 	@Test
 	fun testGetCountriesSaved() {
-		val result = countryRepository.findAllByOrderByAddedAtDesc()
-		result.forEach { log.info("\t Country '${it.countryName}' saved at ${it.addedAt.format()}") }
+		val result = countryRepository.findAllByOrderByCreateAtDesc()
+		result.forEach { log.info("\t Country '${it.countryName}' saved at ${it.createAt.format()}") }
 		assert(result.size == 2)
+	}
+
+	@Test
+	fun testUpdateCountry() {
+		val optional = countryRepository.findByCountryId("159")
+
+		if (optional.isPresent) {
+			val mex = optional.get()
+			log.info("To update: {}", mex.toString())
+			mex.population = mex.population + 100
+			mex.updatedAt = LocalDateTime.now()
+			mex.updatedBy = "admin"
+			val saved = countryRepository.save(mex)
+			log.info("Saved {}", saved.toString())
+		}
+
 	}
 }
