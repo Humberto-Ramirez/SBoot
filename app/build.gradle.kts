@@ -2,6 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
 	kotlin("plugin.jpa") version "1.6.10"
+	kotlin("plugin.allopen") version "1.6.10"
 
 	id("org.springframework.boot") version "2.6.3"
 	id("io.spring.dependency-management") version "1.0.11.RELEASE"
@@ -16,6 +17,10 @@ java.sourceCompatibility = JavaVersion.VERSION_11
 
 ext {
 	set("springCloudVersion", "2021.0.0")
+}
+
+allOpen {
+	annotation("javax.persistence.Entity")
 }
 
 repositories {
