@@ -1,6 +1,7 @@
 package com.crowd.it.controllers
 
 import com.crowd.it.clients.AviationClient
+import com.crowd.it.dtos.CityDto
 import com.crowd.it.dtos.CountryDto
 import com.crowd.it.dtos.response.PaginatedDto
 import com.crowd.it.services.AviationService
@@ -11,6 +12,10 @@ class AviationController(val aviationClient: AviationClient) : AviationService {
 
 	override fun getCountries(limit: Int, offset: Int): PaginatedDto<CountryDto> {
 		return aviationClient.getCountries(limit, offset)
+	}
+
+	override fun getCities(limit: Int, offset: Int): PaginatedDto<CityDto> {
+		return aviationClient.getCities(limit, offset)
 	}
 
 }
