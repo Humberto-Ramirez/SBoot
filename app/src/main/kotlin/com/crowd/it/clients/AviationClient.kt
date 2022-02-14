@@ -16,7 +16,6 @@ interface AviationClient {
 	@GetMapping(value = ["/countries"])
 	fun getCountries(
 		@RequestParam(value = "limit") limit: Int,
-		@RequestParam(value = "offset") offset: Int,
-		@RequestParam(value = "access_key") apiKey: String = "\${clients.aviation.apikey}"
+		@RequestParam(value = "offset") offset: Int
 	): PaginatedDto<CountryDto>
 }
